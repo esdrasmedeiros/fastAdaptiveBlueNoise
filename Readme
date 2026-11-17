@@ -1,0 +1,25 @@
+
+
+This software is a Linux platform implemention of the paper
+"Fast Adaptive Blue Noise on Polygonal Surfaces"i by Esdras Medeiros, Lis
+Ingrid, Sinésio Pesco and Claudio Silva in Graphical Models, 2014.
+
+File specifications:
+
+- genus3.ply: the surface in ply format.
+- genus3.obj.curveq.txt: the importance sampling of the blue noise.
+  distribution.
+- main: the program compiled in Linux 14.04 LTS platform
+- script_test: the main script to run tests
+- data: directory for data dump
+
+Usage:
+
+  ./script_test
+
+For more details about parameters, see paper.
+For any question please send an email to esdras@mat.ufc.br.
+
+
+
+

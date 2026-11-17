@@ -1,0 +1,67 @@
+#!/bin/bash
+
+SURF_BASE_NAME=genus3
+SURF_NAME=$SURF_BASE_NAME.ply
+IMP_SAMPL_NAME=$SURF_BASE_NAME.obj.curveq.txt
+NLEVELS=7
+INIT=10
+RATIO=2
+METRIC=1
+SORT=1
+MINR=0.03185
+
+for i in {0..7}
+do
+echo running thread $i
+    ./main $SURF_NAME $IMP_SAMPL_NAME $NLEVELS $INIT $RATIO  $METRIC  $SORT $MINR $i
+done
+
+echo Moving data to data/$SURF_BASE_NAME
+mv *.hpds data/$SURF_BASE_NAME/Hierarchy/dyadic
+mv *.asp  data/$SURF_BASE_NAME/AdaptiveSamplings/dyadic
+
+NLEVELS=14
+RATIO=1.4142
+MINR=0.03390
+
+
+for i in {0..7}
+do
+echo running thread $i
+ ./main $SURF_NAME $IMP_SAMPL_NAME $NLEVELS $INIT $RATIO  $METRIC $SORT $MINR $i
+done
+
+echo Moving data to data/$SURF_BASE_NAME
+mv *.hpds data/$SURF_BASE_NAME/Hierarchy/sqrt2
+mv *.asp  data/$SURF_BASE_NAME/AdaptiveSamplings/sqrt2
+
+NLEVELS=94
+RATIO=1.052
+SORT=0
+MINR=0.03523
+
+for i in {0..7}
+do
+  echo running thread $i
+  ./main $SURF_NAME $IMP_SAMPL_NAME $NLEVELS $INIT $RATIO  $METRIC $SORT $MINR $i
+done
+
+echo Moving data to data/$SURF_BASE_NAME
+mv *.hpds data/$SURF_BASE_NAME/Hierarchy/1_0.95
+mv *.asp  data/$SURF_BASE_NAME/AdaptiveSamplings/1_0.95
+
+NLEVELS=410
+RATIO=1.010101
+SORT=0
+MINR=0.0361
+
+for i in {0..7}
+do
+echo running thread $i
+ ./main $SURF_NAME $IMP_SAMPL_NAME $NLEVELS $INIT $RATIO  $METRIC  $SORT $MINR $i
+done
+
+echo Moving data to data/$SURF_BASE_NAME
+mv *.hpds data/$SURF_BASE_NAME/Hierarchy/1_0.99
+mv *.asp  data/$SURF_BASE_NAME/AdaptiveSamplings/1_0.99
+
